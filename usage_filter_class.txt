@@ -1,0 +1,21 @@
+Usage for FilterClass
+----------------------------------------
+
+1. For Filtering a Single value
+
+	$objString = Nimbuzz_FilterClass::prepareDataObject($valueToFilter, $filterArray);
+	$finalValue = Nimbuzz_FilterClass::filterDataValue($objString);
+	
+	In Above
+	a. $valueToFilter: Teh value which can to be filtered
+	b. $filterArray: operation to be performed on the string
+					eg: $filterArray = array('strip_tags' => array(), 'addslashes' => array());
+					
+					
+2. For Filtering the complte array
+	$resultArray = Nimbuzz_FilterClass::filterXSS($arrayToFilter);
+	
+	In Above: 
+	$arrayToFilter: This is the array to be filtered ($_POST, $_GET, $_REQUEST, or any array with values);
+	
+	Note: This is only to filter XSS
