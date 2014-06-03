@@ -12,8 +12,8 @@ Usage for FilterClass
 
 1. For Filtering a Single value
 
-	$objString = Nimbuzz_FilterClass::prepareDataObject($valueToFilter, $filterArray);
-	$finalValue = Nimbuzz_FilterClass::filterDataValue($objString);
+	$objString = FilterClass::prepareDataObject($valueToFilter, $filterArray);
+	$finalValue = FilterClass::filterDataValue($objString);
 
 	In Above
 	a. $valueToFilter: Teh value which can to be filtered
@@ -22,9 +22,32 @@ Usage for FilterClass
 
 
 2. For Filtering the complte array
-	$resultArray = Nimbuzz_FilterClass::filterXSS($arrayToFilter);
+	$resultArray = FilterClass::filterXSS($arrayToFilter);
 
 	In Above: 
 	$arrayToFilter: This is the array to be filtered ($_POST, $_GET, $_REQUEST, or any array with values);
 
 	Note: This is only to filter XSS
+	
+
+Usage for RestrictCSRF Class
+----------------------------------------
+
+1. Simple add
+
+	<input type='hidden' value="<?=RestrictCSRF::generateToken('add_bot_form')?>" name='add_bot_form' id='add_bot_form'>
+
+	in the form for which you want the CSRF Protection to be implemented
+
+2. And on POST on the action page check
+
+	if(!RestrictCSRF::checkToken(form_name_value, $array_to_be_checked))
+    {
+        redirect('index.php');
+    }
+
+	In above:
+
+	a. form_name_value: name of the form on the design page
+	b. $array_to_be_checked: the array which contains the CSRF token ($_POST, $_GET, $_REQUEST) as per the implementation.
+
