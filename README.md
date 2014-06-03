@@ -33,9 +33,9 @@ Usage for FilterClass
 Usage for RestrictCSRF Class
 ----------------------------------------
 
-1. Simple add
+1. Simply add value attribute to your input tag similar to
 
-	<input type='hidden' value="<?=RestrictCSRF::generateToken('add_bot_form')?>" name='add_bot_form' id='add_bot_form'>
+	value="<?=RestrictCSRF::generateToken('add_bot_form')?>"
 
 	in the form for which you want the CSRF Protection to be implemented
 
